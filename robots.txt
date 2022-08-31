@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /contacts/
+Sitemap: https://www.xml-sitemaps.com/download/zarifjon.uz-8e885eb82/sitemap.xml?view=1
+
+User-agent: Yandex
+Disallow: /contacts/
+Host: www.zarifjon.uz
+Sitemap: https://www.xml-sitemaps.com/download/zarifjon.uz-8e885eb82/sitemap.xml?view=1

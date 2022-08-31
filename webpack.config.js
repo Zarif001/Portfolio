@@ -48,7 +48,8 @@ const plugins = () => {
         }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
-            filename: '[name].css'
+            filename: '[name].[chunkhash].css',
+      
         }),
 
     ]
@@ -65,7 +66,7 @@ module.exports = {
     },
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
     },
     resolve: {
         extensions: ['.js', '.png', '.html', '.css', '.scss', '.svg'],
@@ -81,8 +82,8 @@ module.exports = {
         open: true,
         hot: isDev,
     },
-    // devtool: isDev ? 'source-map': '',
-    // devtool: 'source-map',
+    devtool: isProd ? 'source-map' : '',
+    devtool: 'source-map',
     plugins: plugins(),
     module: {
         rules: [
@@ -126,7 +127,7 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['@babel/preset-env']
+                        presets: ['@babel/preset-env'],
                     }
                 }
             },
