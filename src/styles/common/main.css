@@ -352,7 +352,7 @@ body.active {
     height: 50px;
 }
 
-.main__content-chevron{
+.main__content-chevron {
     width: 30px;
     height: 30px;
 }
@@ -730,8 +730,11 @@ body.active {
 /* Main Works End */
 
 /* Main Game Start */
-.main__game-content {
+.main__game {
     margin-top: 150px;
+}
+
+.main__game-content {
     opacity: 0;
     transition: 2s;
 }
