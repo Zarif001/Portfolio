@@ -5,6 +5,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+const { extendDefaultPlugins } = require("svgo");
+
 
 
 const isDev = process.env.NODE_ENV === 'develompent'
@@ -19,8 +22,41 @@ const optimization = () => {
     if (isProd) {
         config.minimizer = [
             new CssMinimizerPlugin(),
-            new TerserWebpackPlugin()
+            new TerserWebpackPlugin(),
+            new ImageMinimizerPlugin({
+                minimizer: {
+                    implementation: ImageMinimizerPlugin.imageminMinify,
+                    options: {
+                        // Оптимизация без потерь с настраиваемой опцией
+                        // Не стесняйтесь экспериментировать с вариантами для лучшего результата для вас
+                        plugins: [
+                            ["gifsicle", { interlaced: true }],
+                            ["jpegtran", { progressive: true }],
+                            ["optipng", { optimizationLevel: 5 }],
+                            // Конфигурация Svgo здесь https://github.com/svg/svgo#configuration
+                            [
+                                "svgo",
+                                {
+                                    plugins: extendDefaultPlugins([
+                                        {
+                                            name: "removeViewBox",
+                                            active: false,
+                                        },
+                                        {
+                                            name: "addAttributesToSVGElement",
+                                            params: {
+                                                attributes: [{ xmlns: "http://www.w3.org/2000/svg" }],
+                                            },
+                                        },
+                                    ]),
+                                },
+                            ],
+                        ],
+                    },
+                },
+            }),
         ]
+
     }
     return config
 }
@@ -49,7 +85,7 @@ const plugins = () => {
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: '[name].[chunkhash].css',
-      
+
         }),
 
     ]

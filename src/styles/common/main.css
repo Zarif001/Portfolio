@@ -6,9 +6,7 @@
     text-decoration: none !important;
 }
 
-h1{
-    color: white;
-}
+
 :root {
     --orange: #FFB742;
     --white: #ffffff;
@@ -273,7 +271,7 @@ body.active {
 
 .header__box-title {
     font-size: 40px;
-    line-height: 65px;
+    line-height: 55px;
     text-transform: capitalize;
     color: var(--white);
     font-family: var(--psbo);
