@@ -373,8 +373,6 @@
     /* Main Game  */
 
     .main__game-title {
-        max-width: 430px;
-        width: 100%;
         font-size: 24px;
         line-height: 25px;
     }
@@ -570,7 +568,7 @@
     }
 
     .main__game-title {
-        font-size: 16px;
+        font-size: 19px;
         line-height: 24px;
     }
 
@@ -665,9 +663,25 @@
 
     .view__content-title {
         font-size: 35px;
+        line-height: 47px;
     }
 
     .view__content-text {
         font-size: 25px;
+    }
+}
+@media(max-width:370px){
+
+    /* Main Game */
+
+    .main__game-title{
+        font-size: 15px;
+    }
+
+    /* View Content */
+
+    .view__content-title{
+        font-size: 30px;
+        line-height: 42px;
     }
 }

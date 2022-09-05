@@ -33,24 +33,6 @@ const optimization = () => {
                             ["gifsicle", { interlaced: true }],
                             ["jpegtran", { progressive: true }],
                             ["optipng", { optimizationLevel: 5 }],
-                            // Конфигурация Svgo здесь https://github.com/svg/svgo#configuration
-                            [
-                                "svgo",
-                                {
-                                    plugins: extendDefaultPlugins([
-                                        {
-                                            name: "removeViewBox",
-                                            active: false,
-                                        },
-                                        {
-                                            name: "addAttributesToSVGElement",
-                                            params: {
-                                                attributes: [{ xmlns: "http://www.w3.org/2000/svg" }],
-                                            },
-                                        },
-                                    ]),
-                                },
-                            ],
                         ],
                     },
                 },

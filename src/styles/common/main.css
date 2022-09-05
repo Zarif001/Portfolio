@@ -380,9 +380,10 @@ body.active {
 }
 
 .main__items-myLogo {
-    width: 500px;
+    right: 60px;
+    width: 529px;
     position: absolute;
-    top: -100px;
+    top: -170px;
 }
 
 .main__items-myLogo img {
@@ -745,12 +746,10 @@ body.active {
 
 .main__game-title {
     color: var(--black);
-    font-family: var(--pbo);
+    font-family: var(--psbo);
     font-size: 30px;
     line-height: 33px;
     text-align: center;
-    max-width: 500px;
-    width: 100%;
 }
 
 .main__game-title a {
@@ -788,7 +787,7 @@ body.active {
     font-size: 25px;
     line-height: 33px;
     text-align: center;
-    font-family: var(--psbo);
+    font-family: var(--pbo);
     margin-top: 40px;
     transition: 0.5s;
 }
